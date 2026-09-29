@@ -1,0 +1,634 @@
+/* =============================================
+   WP Block Boosty – Admin Panel Styles
+   Стиль админки соответствует Author for Blockquotes
+   ============================================= */
+
+.wpbb-admin-wrap {
+    margin-top: 20px;
+    max-width: 1400px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* ── Header ──────────────────────────────────── */
+.wpbb-admin-header {
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafd 100%);
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.wpbb-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wpbb-logo-icon {
+    color: #2b5a9e;
+    filter: drop-shadow(0 2px 4px rgba(43, 90, 158, 0.3));
+}
+
+.wpbb-logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d2327;
+    letter-spacing: -0.3px;
+}
+
+.wpbb-logo .v-tag {
+    font-size: 11px;
+    background: linear-gradient(135deg, #e1ecff 0%, #d4e4ff 100%);
+    color: #2271b1;
+    padding: 3px 10px;
+    border-radius: 20px;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+/* ── Status Toggle ───────────────────────────── */
+.wpbb-status-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #f0f6fb 0%, #e8f0f8 100%);
+    padding: 8px 18px;
+    border-radius: 30px;
+}
+
+.status-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #2271b1;
+}
+
+/* ── Switch ──────────────────────────────────── */
+.wpbb-switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.wpbb-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.wpbb-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.35s ease;
+}
+
+.wpbb-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: 0.35s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.wpbb-switch input:checked + .slider {
+    background: linear-gradient(135deg, #4B9C52 0%, #3d8544 100%);
+}
+
+.wpbb-switch input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.wpbb-switch .slider.round {
+    border-radius: 34px;
+}
+
+.wpbb-switch .slider.round:before {
+    border-radius: 50%;
+}
+
+/* ── Tabs Navigation ─────────────────────────── */
+.wpbb-tabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 24px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.wpbb-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #50575e;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.wpbb-tab-btn:hover {
+    background: #f0f2f5;
+    color: #1d2327;
+}
+
+.wpbb-tab-btn.active {
+    background: linear-gradient(135deg, #2b5a9e 0%, #1e4278 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(43, 90, 158, 0.3);
+}
+
+.wpbb-tab-btn.active .dashicons {
+    color: #fff;
+}
+
+.wpbb-tab-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+/* ── Tab Panels ──────────────────────────────── */
+.wpbb-tab-panel {
+    display: none;
+}
+
+.wpbb-tab-panel.active {
+    display: block;
+    animation: wpbbFadeIn 0.3s ease;
+}
+
+@keyframes wpbbFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Card Grid ───────────────────────────────── */
+.wpbb-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
+}
+
+.wpbb-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.wpbb-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.wpbb-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1d2327;
+    border-bottom: 1px solid #f0f0f1;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wpbb-card h3 .dashicons {
+    color: #2b5a9e;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* ── Section Toggle in Header ────────────────── */
+.wpbb-section-toggle {
+    margin-left: auto;
+}
+
+/* ── Fields ──────────────────────────────────── */
+.wpbb-field {
+    margin-bottom: 18px;
+}
+
+.wpbb-field:last-child {
+    margin-bottom: 0;
+}
+
+.wpbb-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #1d2327;
+    font-size: 13px;
+}
+
+.wpbb-field input[type="text"],
+.wpbb-field select {
+    width: 100%;
+    padding: 9px 13px;
+    border-radius: 8px;
+    border: 1px solid #dcdcde;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+}
+
+.wpbb-field input[type="text"]:focus,
+.wpbb-field select:focus {
+    border-color: #2b5a9e;
+    box-shadow: 0 0 0 2px rgba(43, 90, 158, 0.12);
+    outline: none;
+}
+
+.wpbb-field .description {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #787c82;
+}
+
+.wpbb-field .description code {
+    background: #f0f0f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* ── Live Preview Blocks ─────────────────────── */
+.wpbb-admin-preview {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #eceff3;
+    background: #f9fbfd;
+}
+
+.wpbb-admin-preview-title {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #4b5563;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+#wpbb-table-preview table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+#wpbb-table-preview th,
+#wpbb-table-preview td {
+    padding: 8px 10px;
+    font-size: 12px;
+    border: 1px solid #e5e7eb;
+    transition: background 0.2s ease;
+}
+
+#wpbb-table-preview tbody tr:hover td {
+    background: var(--wpbb-table-row-hover, #eaf2ff) !important;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: #1f2937;
+    --wpbb-preview-decor-color: #4B9C52;
+    --wpbb-preview-decor-size: 4px;
+    --wpbb-preview-line-length: 40px;
+}
+
+#wpbb-heading-preview .wpbb-preview-icon {
+    display: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading.shape-line {
+    padding-left: 16px;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading.shape-line:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    bottom: 3px;
+    width: var(--wpbb-preview-decor-size);
+    background: var(--wpbb-preview-decor-color);
+    border-radius: 999px;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading.shape-square {
+    padding-left: 16px;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading.shape-square:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    background: var(--wpbb-preview-decor-color);
+    border-radius: 2px;
+}
+
+#wpbb-heading-preview .wpbb-preview-heading.shape-icon .wpbb-preview-icon {
+    display: inline-flex;
+}
+
+#wpbb-proscons-preview .wpbb-preview-pc-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#wpbb-proscons-preview .wpbb-preview-pc-col {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#wpbb-proscons-preview .wpbb-preview-title-pill {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#wpbb-proscons-preview .wpbb-preview-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#wpbb-proscons-preview .wpbb-preview-list li {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+#wpbb-proscons-preview .wpbb-preview-item-icon {
+    width: 16px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+/* ── Field Groups (2 columns) ────────────────── */
+.wpbb-field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* ── Toggle Checkbox ─────────────────────────── */
+.wpbb-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+.wpbb-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2b5a9e;
+}
+
+.wpbb-toggle span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #3c434a;
+}
+
+/* ── Photo Upload ────────────────────────────── */
+.wpbb-photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.wpbb-preview-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0f0f1 0%, #e8e8e9 100%);
+    overflow: hidden;
+    border: 2px dashed #c3c4c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+
+.wpbb-preview-circle:hover {
+    border-color: #2b5a9e;
+}
+
+.wpbb-preview-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wpbb-upload-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ── Info Box ────────────────────────────────── */
+.wpbb-info-box {
+    background: linear-gradient(135deg, #f0f6fb 0%, #e8f0f8 100%);
+    border-left: 4px solid #2271b1;
+    padding: 16px 18px;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.wpbb-info-box .dashicons {
+    color: #2271b1;
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.wpbb-info-box p {
+    margin: 0;
+    font-size: 13px;
+    color: #2c3338;
+    line-height: 1.6;
+}
+
+.wpbb-info-box code {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+/* ── Fixed Footer ────────────────────────────── */
+.wpbb-fixed-footer {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px 30px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    bottom: 20px;
+    z-index: 100;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.wpbb-fixed-footer .button-primary {
+    padding: 8px 32px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+/* ── Color Picker Override ───────────────────── */
+.wpbb-field .wp-picker-container {
+    width: 100%;
+}
+
+.wpbb-field .wp-picker-container .wp-color-result {
+    border-radius: 8px;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 782px) {
+    .wpbb-admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wpbb-field-group {
+        grid-template-columns: 1fr;
+    }
+
+    .wpbb-tabs-nav {
+        gap: 3px;
+        padding: 6px;
+    }
+
+    .wpbb-tab-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .wpbb-tab-btn .dashicons {
+        font-size: 14px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .wpbb-logo h1 {
+        font-size: 18px;
+    }
+
+    .wpbb-status-toggle {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wpbb-admin-header {
+        padding: 15px 18px;
+    }
+
+    .wpbb-logo {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .wpbb-status-toggle {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .wpbb-card {
+        padding: 18px;
+    }
+}
+
+/* ── Tools: Backup / Restore / Reset ── */
+.wpbb-tools-bar {
+    margin-top: 24px;
+}
+
+.wpbb-tools-bar .wpbb-card {
+    max-width: 720px;
+}
+
+.wpbb-tools-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.wpbb-tool-form {
+    display: inline-block;
+}
+
+.wpbb-tool-form-import label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.wpbb-tool-form-import textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 12px;
+    margin-bottom: 10px;
+}

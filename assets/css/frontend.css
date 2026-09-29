@@ -1,0 +1,78 @@
+/* =============================================
+   WP Block Boosty – Frontend Base Styles
+   Базовые стили + micro-animations.
+   Динамические стили генерируются через wp_head.
+   ============================================= */
+
+/* ── Micro-animation: Fade-in on scroll (via IntersectionObserver in JS) ── */
+.wpbb-animate-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wpbb-animate-in.wpbb-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Glassmorphism utility (used on carousel arrows, etc.) ── */
+.wpbb-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Responsive images inside styled figures ── */
+[class*="-figure"] img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Scoped fixes for plugin blocks ── */
+[class*="-table-wrap"] table {
+    margin-bottom: 0;
+}
+
+[class*="-ul"],
+[class*="-ol"],
+[class*="-pc-ul"] {
+    padding-left: 0px;
+}
+
+/* ── Accessibility: keyboard focus for carousel controls ── */
+[class*="-carousel-arrow"]:focus-visible,
+[class*="-carousel-dot"]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+
+    .wpbb-animate-in,
+    .wpbb-animate-in.wpbb-visible {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    [class*="-hero-orb"],
+    [class*="-hero-line"] {
+        animation: none !important;
+    }
+
+    [class*="-carousel"] {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ── Print-friendly: hide carousel controls ── */
+@media print {
+
+    [class*="-carousel-arrow"],
+    [class*="-carousel-dots"] {
+        display: none !important;
+    }
+}

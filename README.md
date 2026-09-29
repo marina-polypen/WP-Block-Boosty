@@ -1,166 +1,628 @@
 # WP Block Boosty
 
-**Version:** 1.6.0
-**Requires PHP:** 8.0+
-**Requires WordPress:** 6.0+
+**WP Block Boosty** is a WordPress plugin that enhances the default Gutenberg blocks with modern, customizable visual styles.
+
+It provides a centralized settings panel for styling blockquotes, lists, tables, images, galleries, headings, lead paragraphs, alternating sections, Latest Posts, and Pros / Cons layouts — without requiring custom code for every page.
+
+> **Version:** 1.6.0
+> **Requires WordPress:** 6.0+
+> **Requires PHP:** 8.0+
 
 ---
 
-## Описание
+## ✨ Features
 
-**WP Block Boosty** — плагин для WordPress, который визуально трансформирует стандартные блоки Gutenberg. Плагин предоставляет единую панель управления для настройки стилей цитат, списков, таблиц, изображений, галерей, заголовков, чередующихся секций и секции **Pros / Cons** на базе `wp-block-columns`.
+WP Block Boosty extends the WordPress block editor with a collection of ready-to-use visual enhancements.
 
-Плагин виден в списке плагинов, страница настроек доступна из бокового меню WordPress.
+### Supported Sections
+
+| Section                  | Description                                                               |
+| ------------------------ | ------------------------------------------------------------------------- |
+| **Blockquotes**          | Add author photos, names, roles, and quote icons                          |
+| **Ordered Lists**        | Custom numbered markers and styled headings inside list items             |
+| **Unordered Lists**      | Card-style lists with optional decorative numbering                       |
+| **Tables**               | Zebra rows, colored headers, shadows, borders, and rounded corners        |
+| **Lead Paragraph**       | Automatically highlight the first paragraph of an article                 |
+| **Hero Skins**           | Aurora, Glass, and Editorial hero styles for lead paragraphs              |
+| **Heading Decor**        | Add lines, squares, or Dashicons to H1–H4 headings                        |
+| **Images**               | Border radius, shadows, and hover effects for images                      |
+| **Gallery Carousel**     | Convert Gutenberg galleries into horizontal CSS Scroll Snap sliders       |
+| **Latest Posts**         | Card-based post layouts with hover effects                                |
+| **Alternating Sections** | Automatically group content between H2 headings into alternating sections |
+| **Pros / Cons**          | Dedicated styling for Pros / Cons layouts based on Gutenberg Columns      |
 
 ---
 
-## Доступ к настройкам
+## ⚙️ Settings
 
-Пункт меню: **Настройки → Block Boosty**. Прямая ссылка:
+After activating the plugin, open:
 
-```
+**WordPress Dashboard → Settings → Block Boosty**
+
+Direct URL:
+
+```text
 /wp-admin/options-general.php?page=wp-block-boosty-settings
 ```
 
-Во вкладке **Global** доступны инструменты **Backup & Restore**: экспорт настроек в JSON, импорт из JSON и сброс к значениям по умолчанию.
+The settings page contains multiple tabs for configuring individual sections.
+
+### Global Settings
+
+The **Global** tab provides the main styling and behavior options:
+
+* Primary and secondary colors
+* Primary color cascading
+* Border radius
+* Border width for normal and hover states
+* Shadows
+* CSS class prefix
+* Display rules
+* Animation transition speed
+* Backup & Restore tools
+
+### Backup & Restore
+
+Settings can be exported and imported as JSON.
+
+This makes it easy to:
+
+* back up your configuration;
+* move settings between WordPress installations;
+* restore previous settings;
+* reset the plugin to its default configuration.
 
 ---
 
-## Поддерживаемые секции
+# 📝 Lead Paragraph & Hero Sections
 
-| # | Секция | Описание |
-|---|--------|----------|
-| 1 | **Blockquotes** | Фото автора, имя, роль, иконка кавычки. Полный перенос из Author for Blockquotes. |
-| 2 | **Ordered Lists (ol)** | Кастомные цифровые маркеры, `strong` как заголовок внутри `li`. |
-| 3 | **Unordered Lists (ul)** | Карточный дизайн, опциональные декоративные номера (01, 02…). |
-| 4 | **Tables** | Zebra-стилизация, цветная шапка, тени, закругления. |
-| 5 | **Lead Paragraph** | Автоматическое выделение первого абзаца поста. Поддерживает 3 премиум Hero-шаблона (Aurora, Glass, Editorial) для яркого старта статьи. |
-| 6 | **Heading Decor** | Линии, квадраты или Dashicons у заголовков H1-H4. Подсветка слов. |
-| 7 | **Images (Figure)** | Border radius, тени, hover-эффекты для всех изображений. |
-| 8 | **Gallery → Carousel** | Трансформация стандартной галереи в горизонтальный слайдер (CSS Scroll Snap). |
-| 9 | **Latest Posts** | Карточная стилизация с Lift Up / Scale hover-эффектом. |
-| 10 | **Alternating Sections** | Автоматическая группировка контента между H2 в odd/even секции. |
-| 11 | **Pros / Cons Columns** | Секция на базе `wp-block-columns.col-pros-cons` с отдельными стилями для Pros/Cons, скинами, иконками и декором. |
+WP Block Boosty can automatically detect the first meaningful text paragraph of an article and apply a custom Lead Paragraph style.
+
+The plugin ignores empty paragraphs and headings inside supported structures such as quotes and Pros / Cons blocks.
+
+## Hero Skins
+
+The **Lead P** settings include three predefined Hero styles.
+
+### Aurora
+
+A dark hero layout featuring:
+
+* gradient mesh effects;
+* animated decorative orbs;
+* modern visual styling.
+
+### Glass
+
+A light glassmorphism-inspired design featuring:
+
+* blur effects;
+* translucent surfaces;
+* subtle borders;
+* glowing accents.
+
+### Editorial
+
+A dark editorial-style hero featuring:
+
+* premium typography;
+* accent lighting;
+* a strong visual introduction.
+
+When a Hero Skin is selected, it overrides the manual Lead Paragraph background, spacing, and shadow settings.
 
 ---
 
-## Глобальные опции
+# 👍 Pros / Cons Columns
 
-- **Colors** — основной и дополнительный цвета
-- **Cascade Primary Color** — если включено, дефолтные цвета секций подменяются Primary Color; выключите, чтобы каждая секция использовала свои дефолты
-- **Borders** — border-radius, толщина рамки (normal/hover)
-- **Shadows** — тени (normal/hover)
-- **CSS Prefix** — префикс для CSS-классов (по умолчанию: `be`)
-- **Display Rules** — Pages, Posts, конкретные ID
-- **Transition Speed** — скорость анимаций
+WP Block Boosty provides a dedicated styling system for Pros / Cons sections built on the standard Gutenberg **Columns** block.
 
----
+## How to Use
 
-## Pros / Cons Columns
+1. Add a **Columns** block.
+2. Add the following additional CSS class:
 
-Секция активируется **только** если блок Gutenberg Columns имеет класс:
-
-```html
-wp-block-columns col-pros-cons
+```text
+col-pros-cons
 ```
 
-### Как использовать
+3. Add a heading inside each column.
+4. Use a regular unordered list below the heading.
 
-1. Создай блок `Columns`
-2. Добавь класс `col-pros-cons`
-3. Внутри каждой колонки можно использовать заголовок как:
-   - `p`
-   - `h3`
-   - `h4`
-4. Ниже заголовка используй обычный `ul > li`
-
-### Важно
-
-- Внутри `col-pros-cons` стандартная обработка секции **UL cards** не применяется.
-- Это сделано специально, чтобы `ul/li` внутри Pros/Cons рендерились по собственным правилам.
-
-### Скины блока
-
-Можно задать **дефолтный скин** в админке или переопределить его прямо на блоке через дополнительный класс:
-
-- `pc-skin-soft` — мягкие карточки, большая иконка-декор в углу
-- `pc-skin-goodbad` — крупный заголовок в капсе + tag справа
-- `pc-skin-editorial` — градиентный фон вокруг блока + внутренние карточки
-- `pc-skin-minimal` — минимальный стиль без лишнего декора
-
-Пример:
+The heading can be:
 
 ```html
+<p>Pros</p>
+```
+
+or:
+
+```html
+<h3>Pros</h3>
+```
+
+or:
+
+```html
+<h4>Pros</h4>
+```
+
+The same structure can be used for the Cons column.
+
+---
+
+## Pros / Cons Skins
+
+A default skin can be selected from the plugin settings.
+
+Alternatively, a skin can be assigned directly to an individual block using an additional CSS class.
+
+### Available Skins
+
+#### Soft
+
+```text
+pc-skin-soft
+```
+
+Soft cards with a large decorative icon positioned in the corner.
+
+#### Good / Bad
+
+```text
+pc-skin-goodbad
+```
+
+Large uppercase headings with a compact tag-style element.
+
+#### Editorial
+
+```text
+pc-skin-editorial
+```
+
+A gradient background surrounding the section with individual inner cards.
+
+#### Minimal
+
+```text
+pc-skin-minimal
+```
+
+A clean layout with minimal decorative elements.
+
+### Example
+
+```text
 wp-block-columns col-pros-cons pc-skin-editorial
 ```
 
-Если `pc-skin-*` не задан, используется значение **Default Skin** из настроек.
-
-### Настройки Pros / Cons
-
-Во вкладке **Pros/Cons** доступны:
-
-- отдельный фон для `Pros` и `Cons`
-- отдельный фон заголовка для `Pros` и `Cons`
-- отдельный цвет иконок списка для `Pros` и `Cons`
-- отдельный цвет декора для `Pros` и `Cons`
-- выбор иконок списка:
-  - `check`, `plus`
-  - `cross`, `minus`
-- выбор типа декора:
-  - Pros: `thumb-up`, `check`, `plus`, `star`, `spark`
-  - Cons: `thumb-down`, `cross`, `minus`, `alert`, `ban`
-- размер и прозрачность декора
-- выбор дефолтного скина
+If no `pc-skin-*` class is specified, the default skin from the plugin settings is used.
 
 ---
 
-## Lead Paragraph / Hero Section
+## Pros / Cons Customization
 
-Первый абзац статьи можно превратить в эффектную **Hero Section**. Для этого во вкладке "Lead P" предусмотрен переключатель **Hero Skin (Overrides custom settings)**. Вы можете выбрать один из 3 ярких шаблонов:
+The Pros / Cons settings allow separate customization for both sides.
 
-- **Aurora** — градиентный mesh с анимированными орбами на тёмном фоне.
-- **Glass** — светлый glassmorphism с блюром, свечением и полупрозрачными рамками.
-- **Editorial** — премиальный тёмный фон с акцентным свечением.
+### Pros
 
-Если выбран шаблон (не "None"), он **полностью переопределяет** ручные настройки фона, отступов и теней для Lead Paragraph, создавая завершенный премиальный вид.
+* Background color
+* Heading background
+* List icon color
+* Decorative element color
+* List icon
+* Decorative icon
+* Decoration size
+* Decoration opacity
 
-Определение вводного абзаца устойчиво к структуре: плагин пропускает пустые абзацы и заголовки внутри блоков Pros/Cons и цитат, выбирая реальный первый текстовый абзац.
+### Cons
+
+The same options are available independently for the Cons column.
+
+### List Icons
+
+Pros:
+
+* `check`
+* `plus`
+
+Cons:
+
+* `cross`
+* `minus`
+
+### Decorative Icons
+
+Pros:
+
+* `thumb-up`
+* `check`
+* `plus`
+* `star`
+* `spark`
+
+Cons:
+
+* `thumb-down`
+* `cross`
+* `minus`
+* `alert`
+* `ban`
 
 ---
 
-## Структура файлов
+# 🎨 Heading Decorations
 
+Heading Decor adds optional visual elements to Gutenberg headings.
+
+Supported heading levels:
+
+```text
+H1
+H2
+H3
+H4
 ```
+
+Depending on the configuration, headings can use:
+
+* decorative lines;
+* squares;
+* Dashicons;
+* highlighted words.
+
+---
+
+# 🖼️ Images
+
+The Images / Figure section adds visual styling to Gutenberg images.
+
+Available effects include:
+
+* border radius;
+* normal and hover shadows;
+* hover transitions;
+* customizable visual presentation.
+
+The styling is applied automatically according to the plugin's display rules.
+
+---
+
+# 🖼️ Gallery Carousel
+
+Standard Gutenberg galleries can be transformed into horizontal carousels.
+
+The carousel uses modern CSS features, including:
+
+* horizontal scrolling;
+* CSS Scroll Snap;
+* responsive behavior;
+* lightweight JavaScript enhancements.
+
+No jQuery dependency is required on the frontend.
+
+---
+
+# 📋 Lists
+
+## Ordered Lists
+
+Ordered lists support custom numbered markers.
+
+The plugin can also style `<strong>` elements inside list items as visual headings.
+
+## Unordered Lists
+
+Unordered lists can be displayed as modern card-style layouts.
+
+Optional decorative numbering is available:
+
+```text
+01
+02
+03
+...
+```
+
+The dedicated Pros / Cons layout has its own list processing and is intentionally excluded from the standard unordered-list card styling.
+
+---
+
+# 📊 Tables
+
+Gutenberg tables can be enhanced with:
+
+* zebra row styling;
+* custom header colors;
+* borders;
+* rounded corners;
+* shadows;
+* hover states.
+
+All visual settings can be controlled through the plugin options.
+
+---
+
+# 📰 Latest Posts
+
+The Latest Posts section adds a card-based visual style to the WordPress Latest Posts block.
+
+Available interactions include:
+
+* Lift Up hover effect;
+* Scale hover effect;
+* responsive card layouts.
+
+---
+
+# 🔄 Alternating Sections
+
+WP Block Boosty can automatically organize article content into alternating sections based on H2 headings.
+
+Content between H2 headings is grouped into sections and can receive alternating styling for a more structured editorial layout.
+
+This is especially useful for:
+
+* long-form articles;
+* guides;
+* tutorials;
+* comparison pages;
+* editorial content.
+
+---
+
+# 🎯 Display Rules
+
+WP Block Boosty includes display controls that allow the frontend styles to be limited to specific content.
+
+You can configure the plugin to work with:
+
+* Pages;
+* Posts;
+* specific post/page IDs.
+
+This makes it possible to enable the visual system only where it is needed.
+
+---
+
+# 🧩 CSS Prefix
+
+The plugin uses a configurable CSS prefix to reduce the chance of conflicts with themes and other plugins.
+
+The default prefix is:
+
+```text
+be-
+```
+
+The prefix can be changed from the Global settings.
+
+---
+
+# 🛠️ Technical Details
+
+WP Block Boosty is designed to keep the frontend lightweight while providing flexible styling controls.
+
+### Settings
+
+Plugin settings are stored in a single option:
+
+```text
+wp_block_boosty_options
+```
+
+This reduces the number of database queries required to retrieve configuration values.
+
+### Caching
+
+Settings are cached in memory during the current request.
+
+Generated dynamic CSS is cached using a WordPress transient:
+
+```text
+wpbb_dynamic_css
+```
+
+The dynamic CSS cache is automatically cleared when plugin settings are saved.
+
+### Dynamic CSS
+
+The plugin generates dynamic CSS in `wp_head` and uses CSS variables for global design tokens.
+
+### JavaScript
+
+The frontend uses vanilla JavaScript and does not require jQuery.
+
+JavaScript is used for features such as:
+
+* gallery carousel behavior;
+* Latest Posts interactions;
+* scroll-based animations.
+
+### Scroll Animations
+
+Micro-animations use the native browser:
+
+```text
+IntersectionObserver
+```
+
+This allows elements to animate as they enter the viewport without requiring a third-party animation library.
+
+### Pros / Cons Processing
+
+The Pros / Cons section is processed with `DOMDocument` only when the content contains:
+
+```text
+wp-block-columns.col-pros-cons
+```
+
+This keeps additional content processing limited to the blocks that actually use the feature.
+
+---
+
+# 📁 Plugin Structure
+
+```text
 wp-block-boosty/
-├── wp-block-boosty.php          # Точка входа
-├── uninstall.php                # Очистка опций/кеша при удалении
+├── wp-block-boosty.php
+├── uninstall.php
 ├── includes/
-│   ├── class-settings.php       # Дефолты, sanitize, get/set
-│   ├── class-admin.php          # Админ-панель с вкладками
-│   └── class-frontend.php       # Обработка контента, dynamic CSS, Pros/Cons skins
+│   ├── class-settings.php
+│   ├── class-admin.php
+│   └── class-frontend.php
 ├── assets/
 │   ├── css/
-│   │   ├── admin.css            # Стили админки
-│   │   └── frontend.css         # Базовые фронтенд-стили
+│   │   ├── admin.css
+│   │   └── frontend.css
 │   └── js/
-│       ├── admin.js             # Tabs, Color Picker, Media Upload
-│       └── frontend.js          # Carousel, Latest Posts, Scroll Animations
+│       ├── admin.js
+│       └── frontend.js
+└── README.md
+```
+
+### Main Files
+
+**`wp-block-boosty.php`**
+Main plugin entry point.
+
+**`uninstall.php`**
+Removes plugin options and cached dynamic CSS when the plugin is uninstalled.
+
+**`includes/class-settings.php`**
+Handles default settings, sanitization, and option management.
+
+**`includes/class-admin.php`**
+Creates the WordPress administration interface and settings tabs.
+
+**`includes/class-frontend.php`**
+Handles frontend content processing, dynamic CSS, and Pros / Cons skins.
+
+**`assets/css/admin.css`**
+Styles for the WordPress admin interface.
+
+**`assets/css/frontend.css`**
+Base frontend styles.
+
+**`assets/js/admin.js`**
+Admin tabs, color picker, and media upload functionality.
+
+**`assets/js/frontend.js`**
+Carousel behavior, Latest Posts interactions, and scroll animations.
+
+---
+
+# 🔒 Security & WordPress Standards
+
+The plugin follows standard WordPress practices, including:
+
+* WordPress Settings API;
+* nonce protection through `settings_fields`;
+* input sanitization;
+* output escaping;
+* configurable CSS prefixes;
+* cleanup on uninstall.
+
+Common WordPress escaping and sanitization functions include:
+
+```php
+sanitize_text_field()
+absint()
+
+esc_attr()
+esc_html()
+esc_url()
 ```
 
 ---
 
-## Технические детали
+# 📦 Installation
 
-- **Единый массив опций**: `wp_block_boosty_options` — минимизация запросов к БД
-- **Кеширование**: настройки кешируются в памяти на запрос; динамический CSS кешируется в transient (`wpbb_dynamic_css`) и сбрасывается при сохранении
-- **Uninstall**: `uninstall.php` удаляет опции и transient при удалении плагина
-- **Sanitization**: `sanitize_text_field`, `absint` при сохранении
-- **Escaping**: `esc_attr`, `esc_html`, `esc_url` при выводе
-- **Nonce**: через WP Settings API (`settings_fields`)
-- **Prefix**: все CSS-классы используют настраиваемый префикс (default: `be-`)
-- **Динамические стили**: генерируются в `wp_head`, CSS Variables для глобальных токенов
-- **Vanilla JS**: без jQuery на фронте, CSS Scroll Snap для карусели
-- **IntersectionObserver**: micro-animations при скролле (fade-in с stagger)
-- **Pros / Cons**: секция обрабатывается через DOMDocument только для `wp-block-columns.col-pros-cons`
-- **Skins**: поддерживаются через CSS-классы `pc-skin-*` на конкретном блоке
+## From the WordPress Dashboard
+
+1. Download or package the plugin.
+2. Open **Plugins → Add New → Upload Plugin**.
+3. Upload the plugin ZIP file.
+4. Install the plugin.
+5. Activate **WP Block Boosty**.
+6. Go to **Settings → Block Boosty**.
+
+## Manual Installation
+
+1. Download the repository.
+2. Upload the `wp-block-boosty` directory to:
+
+```text
+/wp-content/plugins/
+```
+
+3. Activate the plugin from **Plugins → Installed Plugins**.
+4. Open:
+
+```text
+Settings → Block Boosty
+```
+
+---
+
+# 💡 Requirements
+
+* **WordPress:** 6.0 or newer
+* **PHP:** 8.0 or newer
+* **Editor:** Gutenberg / WordPress Block Editor
+
+---
+
+# 🚀 Use Cases
+
+WP Block Boosty is useful for websites that rely heavily on Gutenberg and want a consistent visual system without adding a page builder.
+
+Typical use cases include:
+
+* blogs;
+* editorial websites;
+* product reviews;
+* comparison websites;
+* tutorials and guides;
+* affiliate websites;
+* content-heavy WordPress projects;
+* magazine-style websites.
+
+---
+
+# 📌 Compatibility
+
+WP Block Boosty works with standard WordPress Gutenberg blocks and is designed to complement existing WordPress themes.
+
+Because the plugin uses configurable CSS prefixes and scoped block styles, it can be integrated into existing WordPress projects with less risk of global style conflicts.
+
+---
+
+# 🤝 Contributing
+
+Contributions, bug reports, feature requests, and improvements are welcome.
+
+If you find a bug or have an idea for a new feature, please open an issue in the GitHub repository.
+
+Pull requests are also welcome.
+
+---
+
+# 📄 License
+
+See the repository for the current license information.
+
+---
+
+## Author
+
+**Marina Polypen**
+
+GitHub: [@marina-polypen](https://github.com/marina-polypen)
+
+---
+
+## 🔗 Repository
+
+[WP Block Boosty on GitHub](https://github.com/marina-polypen/WP-Block-Boosty)
